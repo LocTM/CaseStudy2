@@ -1,12 +1,17 @@
 package model;
 
-public class HouseholdGoods {
+public class HouseholdGoods extends Shop {
     private String manufacturer;
 
     public HouseholdGoods() {
     }
 
     public HouseholdGoods(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public HouseholdGoods(String id, String name, double cost, int year, String manufacturer) {
+        super(id, name, cost, year);
         this.manufacturer = manufacturer;
     }
 

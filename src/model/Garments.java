@@ -1,23 +1,29 @@
 package model;
 
-public class Garments {
-    private String type;
+public class Garments extends Shop {
+    private String style;
     private String color;
 
     public Garments() {
     }
 
-    public Garments(String type, String color) {
-        this.type = type;
+    public Garments(String style, String color) {
+        this.style = style;
         this.color = color;
     }
 
-    public String getType() {
-        return type;
+    public Garments(String id, String name, double cost, int year, String style, String color) {
+        super(id, name, cost, year);
+        this.style = style;
+        this.color = color;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
     }
 
     public String getColor() {
@@ -31,7 +37,7 @@ public class Garments {
     @Override
     public String toString() {
         return "Garments{" +
-                "type='" + type + '\'' +
+                "type='" + style + '\'' +
                 ", color='" + color + '\'' +
                 '}';
     }
