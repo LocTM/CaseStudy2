@@ -8,7 +8,7 @@ import java.util.List;
 public class ShopManager {
     public static List<Shop> list = new ArrayList<>();
 
-    public void addNew(Shop s){
+    public void addNewItem(Shop s){
         list.add(s);
     }
 
@@ -19,5 +19,11 @@ public class ShopManager {
     public ShopManager() {
     }
 
+    public static List<Shop> getList() {
+        return list;
+    }
 
+    public static void setList(List<Shop> list) {
+        ShopManager.list = list;
+    }
 }
