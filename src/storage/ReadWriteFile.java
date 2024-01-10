@@ -8,7 +8,7 @@ import java.util.List;
 public class ReadWriteFile {
     //doc file
     public List<Shop> readFile(){
-        File file = new File("Shop.txt");
+        File file = new File("shop.txt");
         try {
             InputStream inputStream = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(inputStream);
@@ -24,4 +24,21 @@ public class ReadWriteFile {
         }
 
     }
+
+    //ghi file
+    public void writeFile(List<Shop> list){
+        File file = new File("shop.txt");
+        try {
+            OutputStream os = new FileOutputStream(file);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(os);
+            objectOutputStream.writeObject(list);
+            os.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }
