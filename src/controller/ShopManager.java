@@ -1,15 +1,18 @@
 package controller;
 
 import model.Shop;
+import storage.ReadWriteFile;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShopManager {
-    public static List<Shop> list = new ArrayList<>();
+    public static List<Shop> list = new ReadWriteFile().readFile();
 
     public static void addNewItem(Shop s){
+
         list.add(s);
+        new ReadWriteFile().writeFile(list);
     }
 
     public static void deleteById(int index) {

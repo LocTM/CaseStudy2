@@ -3,6 +3,7 @@ package storage;
 import model.Shop;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReadWriteFile {
@@ -16,11 +17,11 @@ public class ReadWriteFile {
             list = (List<Shop>) ois.readObject();
             return list;
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            return new ArrayList<>();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return new ArrayList<>();
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            return new ArrayList<>();
         }
 
     }
