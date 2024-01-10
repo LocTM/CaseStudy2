@@ -5,7 +5,7 @@ import model.Garments;
 import model.HouseholdGoods;
 import model.Shop;
 
-import java.sql.SQLOutput;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,10 +13,19 @@ public class Main {
 //    public static List<Shop> list = ShopManager.list;
 
     public static void main(String[] args) {
+        // Thêm
         System.out.println(ShopManager.list);
         Shop shop = createNewItem();
         ShopManager.addNewItem(shop);
         System.out.println(ShopManager.list);
+
+        // Xóa cửa hàng tại vị trí đã nhập
+        System.out.println(ShopManager.list);
+        int indexToDelete = getIndex();
+        ShopManager.deleteByIndex(indexToDelete);
+        System.out.println(ShopManager.list);
+
+
     }
 
     //tao moi item trong shop
@@ -59,5 +68,21 @@ public class Main {
             default:
                 return null;
         }
+    }
+
+    private static int getIndex() {
+        Scanner scanner = new Scanner(System.in);
+        int index;
+
+        do {
+            System.out.print("Nhập index cần xóa: ");
+            while (!scanner.hasNextInt()) {
+                System.out.print("Vui lòng nhập một số nguyên: ");
+                scanner.next();
+            }
+            index = scanner.nextInt();
+        } while (index < 0 || index >= ShopManager.getList().size());
+
+        return index;
     }
 }

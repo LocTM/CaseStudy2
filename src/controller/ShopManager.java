@@ -3,7 +3,6 @@ package controller;
 import model.Shop;
 import storage.ReadWriteFile;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShopManager {
@@ -15,9 +14,25 @@ public class ShopManager {
         new ReadWriteFile().writeFile(list);
     }
 
-    public static void deleteById(int index) {
-        list.remove(index);
+    public static void deleteByIndex(int i) {
+        if (i >= 0 && i < list.size()) {
+            list.remove(i);
+            new ReadWriteFile().writeFile(list);
+        } else {
+            System.out.println("Index out of bounds.");
+        }
     }
+
+
+    public void editItem(Shop s){
+
+    }
+
+    public void searhItem(Shop s){
+        
+    }
+
+
 
     public ShopManager() {
     }

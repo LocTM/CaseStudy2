@@ -28,18 +28,18 @@ public class ReadWriteFile {
 
     //ghi file
     public void writeFile(List<Shop> list){
-        File file = new File("shop.txt");
-        try {
-            OutputStream os = new FileOutputStream(file);
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(os);
-            objectOutputStream.writeObject(list);
-            os.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+            File file = new File("shop.txt");
+            try {
+                OutputStream os = new FileOutputStream(file);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(os);
+                objectOutputStream.writeObject(list);
+                os.close();
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-    }
+        }
 
 }
