@@ -27,6 +27,6 @@ public class HouseholdGoods extends Shop {
     public String toString() {
         return "HouseholdGoods{" +
                 "manufacturer='" + manufacturer + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }

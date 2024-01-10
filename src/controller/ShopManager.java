@@ -8,11 +8,11 @@ import java.util.List;
 public class ShopManager {
     public static List<Shop> list = new ArrayList<>();
 
-    public void addNewItem(Shop s){
+    public static void addNewItem(Shop s){
         list.add(s);
     }
 
-    public void deleteById(int index) {
+    public static void deleteById(int index) {
         list.remove(index);
     }
 

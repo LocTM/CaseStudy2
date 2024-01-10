@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static List<Shop> list = ShopManager.list;
+//    public static List<Shop> list = ShopManager.list;
 
     public static void main(String[] args) {
+        System.out.println(ShopManager.list);
         Shop shop = createNewItem();
+        ShopManager.addNewItem(shop);
+        System.out.println(ShopManager.list);
     }
 
     //tao moi item trong shop

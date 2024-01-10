@@ -37,8 +37,8 @@ public class Garments extends Shop {
     @Override
     public String toString() {
         return "Garments{" +
-                "type='" + style + '\'' +
+                "style='" + style + '\'' +
                 ", color='" + color + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }
