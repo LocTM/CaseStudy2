@@ -100,26 +100,9 @@ public class ShopManager {
 
     }
 
-    public void sortItemByName(){
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Nhập tên sản phẩm để sắp xếp: ");
-        String inputName = scanner.nextLine();
-
-        Collections.sort(list, new Comparator<Shop>() {
-            @Override
-            public int compare(Shop shop1, Shop shop2) {
-                return shop1.getName().compareTo(shop2.getName());
-            }
-        });
-
-        System.out.println("Danh sách sau khi sắp xếp theo tên:");
-        
-    }
 
 
-
-    public static int getTotalItemCount() {
+        public static int getTotalItemCount() {
         return list.size();
     }
 
@@ -130,4 +113,5 @@ public class ShopManager {
     public static void setList(List<Shop> list) {
         ShopManager.list = list;
     }
+
 }

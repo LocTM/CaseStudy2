@@ -16,6 +16,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(ShopManager.getList());
+
         int choice;
         do {
             displayMenu();
@@ -65,11 +66,6 @@ public class Main {
                     System.out.println("Vui lòng chọn các chức năng từ 0 đến 5" );
             }
         } while (choice != 0);
-
-
-
-
-
 
 
     }
