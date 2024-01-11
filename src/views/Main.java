@@ -13,19 +13,63 @@ public class Main {
 //    public static List<Shop> list = ShopManager.list;
 
     public static void main(String[] args) {
-        // Thêm
-        System.out.println(ShopManager.list);
-        Shop shop = createNewItem();
-        ShopManager.addNewItem(shop);
-        System.out.println(ShopManager.list);
 
-        // Xóa cửa hàng tại vị trí đã nhập
-        System.out.println(ShopManager.list);
-        int indexToDelete = getIndex();
-        ShopManager.deleteByIndex(indexToDelete);
-        System.out.println(ShopManager.list);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(ShopManager.getList());
+        int choice;
+        do {
+            displayMenu();
+            choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    // Thêm item
+
+                    Shop shop = createNewItem();
+                    ShopManager.addNewItem(shop);
+                    System.out.println("Sản phẩm đã được thêm vào danh sách.");
+                    break;
+
+                case 2:
+                    // Sửa item
+                    int indexToEdit = getIndex();
+                    editItemAtIndex(indexToEdit);
+                    System.out.println("Sản phẩm đã được sửa.");
+                    break;
+
+                case 3:
+                    // Xóa item
+                    int indexToDelete = getIndex();
+                    ShopManager.deleteByIndex(indexToDelete);
+                    System.out.println("Sản phẩm đã được xóa.");
+                    break;
+
+                case 0:
+                    // Thoát chương trình
+                    System.out.println("Chương trình đã kết thúc.");
+                    break;
+
+                default:
+                    System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+            }
+        } while (choice != 0);
 
 
+
+
+
+
+
+    }
+
+    private static void displayMenu() {
+        System.out.println("----- MENU -----");
+        System.out.println("1. Thêm sản phẩm");
+        System.out.println("2. Sửa sản phẩm");
+        System.out.println("3. Xóa sản phẩm");
+        System.out.println("0. Thoát");
+        System.out.print("Chọn: ");
     }
 
     //tao moi item trong shop
@@ -75,7 +119,7 @@ public class Main {
         int index;
 
         do {
-            System.out.print("Nhập index cần xóa: ");
+            System.out.print("Nhập index: ");
             while (!scanner.hasNextInt()) {
                 System.out.print("Vui lòng nhập một số nguyên: ");
                 scanner.next();
@@ -84,5 +128,39 @@ public class Main {
         } while (index < 0 || index >= ShopManager.getList().size());
 
         return index;
+    }
+
+//    private static void editGarmentAtIndex(int index) {
+//        List<Shop> shopList = ShopManager.getList();
+//
+//        if (index >= 0 && index < shopList.size()) {
+//            Shop shopItem = shopList.get(index);
+//
+//            if (shopItem instanceof Garments) {
+//                ShopManager.editGarment((Garments) shopItem);
+//            } else {
+//                ShopManager.editHouseholdGoods((HouseholdGoods) shopItem);
+//            }
+//        } else {
+//            System.out.println("Index không hợp lệ.");
+//        }
+//    }
+
+    private static void editItemAtIndex(int index) {
+        List<Shop> shopList = ShopManager.getList();
+
+        if (index >= 0 && index < shopList.size()) {
+            Shop shopItem = shopList.get(index);
+
+            if (shopItem instanceof Garments) {
+                ShopManager.editGarment((Garments) shopItem);
+            } else if (shopItem instanceof HouseholdGoods) {
+                ShopManager.editHouseholdGoods((HouseholdGoods) shopItem);
+            } else {
+                System.out.println("Loại sản phẩm không hợp lệ.");
+            }
+        } else {
+            System.out.println("Index không hợp lệ.");
+        }
     }
 }
