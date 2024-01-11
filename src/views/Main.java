@@ -28,6 +28,7 @@ public class Main {
 
                     Shop shop = createNewItem();
                     ShopManager.addNewItem(shop);
+                    System.out.println(ShopManager.getList());
                     System.out.println("Sản phẩm đã được thêm vào danh sách.");
                     break;
 
@@ -35,6 +36,7 @@ public class Main {
                     // Sửa item
                     int indexToEdit = getIndex();
                     editItemAtIndex(indexToEdit);
+                    System.out.println(ShopManager.getList());
                     System.out.println("Sản phẩm đã được sửa.");
                     break;
 
@@ -42,8 +44,17 @@ public class Main {
                     // Xóa item
                     int indexToDelete = getIndex();
                     ShopManager.deleteByIndex(indexToDelete);
+                    System.out.println(ShopManager.getList());
                     System.out.println("Sản phẩm đã được xóa.");
                     break;
+
+                case 4: //Hiển thị tổng số item trong kho
+                    int totalItemCount = ShopManager.getTotalItemCount();
+                    System.out.println("Tổng số lượng sản phẩm trong shop: " + totalItemCount);
+                    break;
+
+                case 5:// Searh item theo id
+                    ShopManager.searchItemById();
 
                 case 0:
                     // Thoát chương trình
@@ -51,7 +62,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+                    System.out.println("Vui lòng chọn các chức năng từ 0 đến 5" );
             }
         } while (choice != 0);
 
@@ -68,6 +79,8 @@ public class Main {
         System.out.println("1. Thêm sản phẩm");
         System.out.println("2. Sửa sản phẩm");
         System.out.println("3. Xóa sản phẩm");
+        System.out.println("4. Tổng số sản phẩm trong kho");
+        System.out.println("5. Tìm kiếm sản phẩm theo id");
         System.out.println("0. Thoát");
         System.out.print("Chọn: ");
     }

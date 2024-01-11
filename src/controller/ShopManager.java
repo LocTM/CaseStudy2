@@ -5,6 +5,8 @@ import model.HouseholdGoods;
 import model.Shop;
 import storage.ReadWriteFile;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,7 +24,7 @@ public class ShopManager {
             list.remove(i);
             new ReadWriteFile().writeFile(list);
         } else {
-            System.out.println("Index out of bounds.");
+            System.out.println("Không có index này");
         }
     }
 
@@ -71,13 +73,50 @@ public class ShopManager {
         h.setManufacturer(manufacturer);
     }
 
-    public void searchItem(Shop s){
-        
+    public static void searchItemById(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập ID: ");
+        String targetId = scanner.nextLine();
+        boolean found = false;
+        for (Shop shop : list) {
+            if (shop.getId().equals(targetId)) {
+                found = true;
+                showItem(shop);
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Không tìm thấy sản phẩm với ID: " + targetId);
+        }
+    }
+
+    private static void showItem(Shop shop) {
+        System.out.println("----- Chi tiết sản phẩm -----");
+        System.out.println("ID: " + shop.getId());
+        System.out.println("Tên: " + shop.getName());
+        System.out.println("Giá: " + shop.getCost());
+        System.out.println("Năm nhập hàng: " + shop.getYear());
+
+    }
+
+    public void sortItemByName(){
+        Comparator<Shop> comparator = Comparator.comparing(Shop::getName);
+
+        // Sắp xếp danh sách sản phẩm theo tên
+        Collections.sort(list, comparator);
+
+        // Hiển thị danh sách sản phẩm sau khi sắp xếp
+        System.out.println("Danh sách sản phẩm sau khi sắp xếp theo tên:");
+        for (Shop shop : list) {
+
+        }
     }
 
 
 
-    public ShopManager() {
+    public static int getTotalItemCount() {
+        return list.size();
     }
 
     public static List<Shop> getList() {
