@@ -50,7 +50,7 @@ public class Main {
 
                 case 4: //Hiển thị tổng số item trong kho
                     int totalItemCount = ShopManager.getTotalItemCount();
-                    System.out.println("Tổng số lượng sản phẩm trong shop: " + totalItemCount);
+                    System.out.println("Tổng số lượng sản phẩm trong kho: " + totalItemCount);
                     break;
 
                 case 5:// Searh item theo id

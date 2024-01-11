@@ -9,7 +9,7 @@ import java.util.List;
 public class ReadWriteFile {
     //doc file
     public List<Shop> readFile(){
-        File file = new File("shop.txt");
+        File file = new File("shop.shop");
         try {
             InputStream inputStream = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(inputStream);
@@ -28,7 +28,7 @@ public class ReadWriteFile {
 
     //ghi file
     public void writeFile(List<Shop> list){
-            File file = new File("shop.txt");
+            File file = new File("shop.shop");
             try {
                 OutputStream os = new FileOutputStream(file);
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(os);
@@ -42,4 +42,13 @@ public class ReadWriteFile {
 
         }
 
+    public ReadWriteFile() {
+    }
+    private static ReadWriteFile instance;
+
+    public static ReadWriteFile getInstance() {
+        if (instance == null)
+                instance = new ReadWriteFile();
+        return instance;
+    }
 }

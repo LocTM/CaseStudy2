@@ -101,16 +101,20 @@ public class ShopManager {
     }
 
     public void sortItemByName(){
-        Comparator<Shop> comparator = Comparator.comparing(Shop::getName);
+        Scanner scanner = new Scanner(System.in);
 
-        // Sắp xếp danh sách sản phẩm theo tên
-        Collections.sort(list, comparator);
+        System.out.print("Nhập tên sản phẩm để sắp xếp: ");
+        String inputName = scanner.nextLine();
 
-        // Hiển thị danh sách sản phẩm sau khi sắp xếp
-        System.out.println("Danh sách sản phẩm sau khi sắp xếp theo tên:");
-        for (Shop shop : list) {
+        Collections.sort(list, new Comparator<Shop>() {
+            @Override
+            public int compare(Shop shop1, Shop shop2) {
+                return shop1.getName().compareTo(shop2.getName());
+            }
+        });
 
-        }
+        System.out.println("Danh sách sau khi sắp xếp theo tên:");
+        
     }
 
 

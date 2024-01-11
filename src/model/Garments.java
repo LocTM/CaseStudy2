@@ -1,6 +1,6 @@
 package model;
 
-public class Garments extends Shop {
+public class Garments extends Shop implements Discount {
     private String style;
     private String color;
 
@@ -40,5 +40,16 @@ public class Garments extends Shop {
                 "style='" + style + '\'' +
                 ", color='" + color + '\'' +
                 "} " + super.toString();
+    }
+
+    @Override
+    public void getRealMoney() {
+        if (getYear() < 2024) {
+            double discountRate = 0.10;
+            double discountedCost = getCost() - (getCost() * discountRate);
+            System.out.println("Giá giảm giá cho " + getName() + ": " + discountedCost);
+        } else {
+            System.out.println("Giá không giảm giá cho " + getName() + ": " + getCost());
+        }
     }
 }
