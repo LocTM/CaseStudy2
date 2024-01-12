@@ -57,6 +57,8 @@ public class Main {
                 case 5:// Searh item theo id
                     ShopManager.searchItemById();
 
+                case 6:// Sắp xếp theo giá từ thấp đến cao
+                    ShopManager.sortByCost();
                 case 0:
                     // Thoát chương trình
                     System.out.println("Chương trình đã kết thúc.");
@@ -77,6 +79,7 @@ public class Main {
         System.out.println("3. Xóa sản phẩm");
         System.out.println("4. Tổng số sản phẩm trong kho");
         System.out.println("5. Tìm kiếm sản phẩm theo id");
+        System.out.println("6. Sắp xếp sản phẩm theo giá ");
         System.out.println("0. Thoát");
         System.out.print("Chọn: ");
     }

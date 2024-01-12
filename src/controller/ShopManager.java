@@ -100,12 +100,26 @@ public class ShopManager {
 
     }
 
-
-
         public static int getTotalItemCount() {
         return list.size();
     }
 
+    public static void sortByCost() {
+        Collections.sort(list, new Comparator<Shop>() {
+            @Override
+            public int compare(Shop shop1, Shop shop2) {
+                return Double.compare(shop1.getCost(), shop2.getCost());
+            }
+        });
+        System.out.println("Danh sách sau khi sắp xếp theo giá:");
+        showSortList();
+    }
+
+    private static void showSortList() {
+        for (Shop shop : list) {
+            System.out.println(shop);
+        }
+    }
     public static List<Shop> getList() {
         return list;
     }
