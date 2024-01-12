@@ -10,13 +10,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-//    public static List<Shop> list = ShopManager.list;
+    public static List<Shop> list = ShopManager.list;
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(ShopManager.getList());
-
         int choice;
         do {
             displayMenu();
@@ -59,6 +58,15 @@ public class Main {
 
                 case 6:// Sắp xếp theo giá từ thấp đến cao
                     ShopManager.sortByCost();
+
+                case 7:// Giảm giá quần áo
+                    for (Shop product : list) {
+                        if (product instanceof Garments) {
+                            // Ép kiểu về Garments
+                            Garments garments = (Garments) product;
+                            garments.getRealMoney();
+                        }
+                    }
                 case 0:
                     // Thoát chương trình
                     System.out.println("Chương trình đã kết thúc.");
@@ -80,6 +88,7 @@ public class Main {
         System.out.println("4. Tổng số sản phẩm trong kho");
         System.out.println("5. Tìm kiếm sản phẩm theo id");
         System.out.println("6. Sắp xếp sản phẩm theo giá ");
+        System.out.println("7. Chương trình giảm giá quần áo");
         System.out.println("0. Thoát");
         System.out.print("Chọn: ");
     }

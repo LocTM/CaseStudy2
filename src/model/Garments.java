@@ -49,7 +49,7 @@ public class Garments extends Shop implements Discount {
             double discountedCost = getCost() - (getCost() * discountRate);
             System.out.println("Giá giảm giá cho " + getName() + ": " + discountedCost);
         } else {
-            System.out.println("Giá không giảm giá cho " + getName() + ": " + getCost());
+            System.out.println("Giá không giảm cho sản phẩm " + getName() + ": " + getCost());
         }
     }
 }
